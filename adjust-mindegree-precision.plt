@@ -1,5 +1,5 @@
 set term pdf
-set terminal pdf size 10in,4.8in font ",20"
+set terminal pdf size 15in,7.2in font ",20"
 set output 'adjust-mindegree-precision.pdf'
 
 
