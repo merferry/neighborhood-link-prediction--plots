@@ -1,6 +1,6 @@
 set term pdf
 set terminal pdf size 17in,7.2in font ",20"
-set output 'adjust-mindegree-runtime.pdf'
+set output 'adjust-mindegree-f1score.pdf'
 
 
 ## Set global styles
@@ -15,12 +15,13 @@ unset xtics
 set logscale x 10
 set logscale y 10
 set format x "10^{%L}"
+set format y "10^{%L}"
 set grid   y
-set yrange [:2]
+set yrange [:1]
 set key off
 set multiplot layout 2,5 margins 0.07,0.98,0.12,0.95 spacing 0.06,0.10
 # set xlabel  'Batch fraction'
-# set ylabel  'Relative Runtime'
+# set ylabel  'F1 score'
 
 
 ## Set line styles
@@ -38,7 +39,7 @@ set style line 11 linewidth 2 linetype 1 pointtype 3 dashtype 2
 
 
 ## Draw plot
-set label "Relative Runtime" at screen 0.01,0.45 center rotate font ",20"
+set label "F1 score" at screen 0.01,0.45 center rotate font ",20"
 set label "Batch fraction"   at screen 0.5,0.02 center font ",20"
 files='CN JC SI SC HP HD LHN AA RA'
 bestn='32 256 256 256 4 256 4 32 256'
@@ -47,17 +48,17 @@ n=word(bestn, i)
 if (i>=5) { set xtics rotate by 45 right }
 set title word(files, i) offset 0,-0.8
 plot 'adjust-mindegree/'.word(files, i).'.csv' \
-       using 3:($4 /$4) title '∞'    linestyle 1  with linespoints, \
-    '' using 3:($5 /$4) title '2'    linestyle 2  with linespoints, \
-    '' using 3:($6 /$4) title '4'    linestyle 3 lw (n=='4'? 5:2)   with linespoints, \
-    '' using 3:($7 /$4) title '8'    linestyle 4  with linespoints, \
-    '' using 3:($8 /$4) title '16'   linestyle 5  with linespoints, \
-    '' using 3:($9 /$4) title '32'   linestyle 6 lw (n=='32'? 5:2)  with linespoints, \
-    '' using 3:($10/$4) title '64'   linestyle 7  with linespoints, \
-    '' using 3:($11/$4) title '128'  linestyle 8  with linespoints, \
-    '' using 3:($12/$4) title '256'  linestyle 9 lw (n=='256'? 5:2) with linespoints, \
-    '' using 3:($13/$4) title '512'  linestyle 10 with linespoints, \
-    '' using 3:($14/$4) title '1024' linestyle 11 with linespoints
+       using 3:($37) title '∞'    linestyle 1  with linespoints, \
+    '' using 3:($38) title '2'    linestyle 2  with linespoints, \
+    '' using 3:($39) title '4'    linestyle 3 lw (n=='4'? 5:2)   with linespoints, \
+    '' using 3:($40) title '8'    linestyle 4  with linespoints, \
+    '' using 3:($41) title '16'   linestyle 5  with linespoints, \
+    '' using 3:($42) title '32'   linestyle 6 lw (n=='32'? 5:2)  with linespoints, \
+    '' using 3:($43) title '64'   linestyle 7  with linespoints, \
+    '' using 3:($44) title '128'  linestyle 8  with linespoints, \
+    '' using 3:($45) title '256'  linestyle 9 lw (n=='256'? 5:2) with linespoints, \
+    '' using 3:($46) title '512'  linestyle 10 with linespoints, \
+    '' using 3:($47) title '1024' linestyle 11 with linespoints
 }
 
 # Key
