@@ -40,7 +40,7 @@ set style line 11 linewidth 2 linetype 1 pointtype 3 dashtype 2
 
 ## Draw plot
 set label "F1 score" at screen 0.01,0.45 center rotate font ",20"
-set label "Batch fraction"   at screen 0.5,0.02 center font ",20"
+set label "Fraction of Unobserved edges" at screen 0.5,0.02 center font ",20"
 files='CN JC SI SC HP HD LHN AA RA'
 bestn='32 256 256 256 4 256 4 32 256'
 do for [i=1:words(files)] {

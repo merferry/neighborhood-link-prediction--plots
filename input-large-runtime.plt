@@ -13,48 +13,48 @@ set key above font ",12"
 set ylabel  '{/:Bold Runtime (s)}'
 set logscale y
 set grid y
-set yrange [0.01:25]
+set yrange [0.0001:]
+
 
 
 
 ## Draw plot
 plot "input-large.csv" \
-     using ($6 /1000):xtic(1) title '10^{-4}|E|' with histogram fill pattern 3, \
-  '' using ($7 /1000):xtic(1) title '10^{-3}|E|' with histogram fill pattern 3, \
-  '' using ($8 /1000):xtic(1) title '10^{-2}|E|' with histogram fill pattern 3, \
-  '' using ($9 /1000):xtic(1) title '0.1|E|'     with histogram fill pattern 3, \
-  '' using ($0-5.2/20):($6 /1000):($6<100? sprintf("%.2f", $6 /1000) : sprintf("%.1f", $6 /1000))   with labels textcolor rgb 'white' rotate by 90 offset character 0,-1 title '', \
-  '' using ($0-5.2/20):($6 /1000):(strlen(stringcolumn(2))<=3? sprintf("%s", stringcolumn(2)) : "") with labels textcolor rgb 'black' rotate by 90 offset character 0,0.9 title '', \
-  '' using ($0-5.2/20):($6 /1000):(strlen(stringcolumn(2)) >3? sprintf("%s", stringcolumn(2)) : "") with labels textcolor rgb 'black' rotate by 90 offset character 0,1.3 title '', \
-  '' using ($0-1.8/20):($7 /1000):($7<100? sprintf("%.2f", $7 /1000) : sprintf("%.1f", $7 /1000))   with labels textcolor rgb 'white' rotate by 90 offset character 0,-1 title '', \
-  '' using ($0-1.8/20):($7 /1000):(strlen(stringcolumn(3))<=3? sprintf("%s", stringcolumn(3)) : "") with labels textcolor rgb 'black' rotate by 90 offset character 0,0.9 title '', \
-  '' using ($0-1.8/20):($7 /1000):(strlen(stringcolumn(3)) >3? sprintf("%s", stringcolumn(3)) : "") with labels textcolor rgb 'black' rotate by 90 offset character 0,1.3 title '', \
-  '' using ($0+1.8/20):($8 /1000):($8<100? sprintf("%.2f", $8 /1000) : sprintf("%.1f", $8 /1000))   with labels textcolor rgb 'white' rotate by 90 offset character 0,-1 title '', \
-  '' using ($0+1.8/20):($8 /1000):(strlen(stringcolumn(4))<=3? sprintf("%s", stringcolumn(4)) : "") with labels textcolor rgb 'black' rotate by 90 offset character 0,0.9 title '', \
-  '' using ($0+1.8/20):($8 /1000):(strlen(stringcolumn(4)) >3? sprintf("%s", stringcolumn(4)) : "") with labels textcolor rgb 'black' rotate by 90 offset character 0,1.3 title '', \
-  '' using ($0+5.2/20):($9 /1000):($9<100? sprintf("%.2f", $9 /1000) : sprintf("%.1f", $9 /1000))   with labels textcolor rgb 'white' rotate by 90 offset character 0,-1 title '', \
-  '' using ($0+5.2/20):($9 /1000):(strlen(stringcolumn(5))<=3? sprintf("%s", stringcolumn(5)) : "") with labels textcolor rgb 'black' rotate by 90 offset character 0,0.9 title '', \
-  '' using ($0+5.2/20):($9 /1000):(strlen(stringcolumn(5))==4? sprintf("%s", stringcolumn(5)) : "") with labels textcolor rgb 'black' rotate by 90 offset character 0,1.3 title '', \
-  '' using ($0+5.2/20):($9 /1000):(strlen(stringcolumn(5))>=5? sprintf("%s", stringcolumn(5)) : "") with labels textcolor rgb 'black' rotate by 90 offset character 0,2.0 title ''
+     using ($4 /1000):xtic(1) title 'IHub 10^{-2}|E|' with histogram fill pattern 3 ls 2, \
+  '' using ($14/1000):xtic(1) title 'LHub 10^{-2}|E|' with histogram fill pattern 3 ls 6, \
+  '' using ($5 /1000):xtic(1) title 'IHub 0.1|E|'     with histogram fill pattern 3 ls 4, \
+  '' using ($15/1000):xtic(1) title 'LHub 0.1|E|'     with histogram fill pattern 3 ls 8, \
+  '' using ($0-5.2/20):($4 /1000):(sprintf($4 <100? "%.2f" : ($4 <10000? "%.1f" : "%.0f"), $4 /1000))   with labels textcolor rgb 'white' rotate by 90 offset character 0,-1 title '', \
+  '' using ($0-1.8/20):($14/1000):(sprintf($14<100? "%.2f" : ($14<10000? "%.1f" : "%.0f"), $14/1000))   with labels textcolor rgb 'white' rotate by 90 offset character 0,-1 title '', \
+  '' using ($0+1.8/20):($5 /1000):(sprintf($5 <100? "%.2f" : ($5 <10000? "%.1f" : "%.0f"), $5 /1000))   with labels textcolor rgb 'black' rotate by 90 offset character 0,-1 title '', \
+  '' using ($0+5.2/20):($15/1000):(sprintf($15<100? "%.2f" : ($15<10000? "%.1f" : "%.0f"), $15/1000))   with labels textcolor rgb 'white' rotate by 90 offset character 0,-1 title '', \
+  '' using ($0-5.2/20):(0.0001):(strlen(stringcolumn(2 ))<=3? sprintf("%s", stringcolumn(2 )) : "") with labels textcolor rgb 'white' rotate by 90 offset character 0,0.8 title '', \
+  '' using ($0-1.8/20):(0.0001):(strlen(stringcolumn(12))<=7? sprintf("%s", stringcolumn(12)) : "") with labels textcolor rgb 'white' rotate by 90 offset character 0,1.4 title '', \
+  '' using ($0+1.8/20):(0.0001):(strlen(stringcolumn(3 ))<=3? sprintf("%s", stringcolumn(3 )) : "") with labels textcolor rgb 'black' rotate by 90 offset character 0,0.8 title '', \
+  '' using ($0+5.2/20):(0.0001):(strlen(stringcolumn(13))<=7? sprintf("%s", stringcolumn(13)) : "") with labels textcolor rgb 'white' rotate by 90 offset character 0,1.4 title ''
 
 
 
 
 ## Columns in CSV file.
 # 01. graph
-# 02. method4
-# 03. method3
-# 04. method2
-# 05. method1
-# 06. time4
-# 07. time3
-# 08. time2
-# 09. time1
-# 10. precision4
-# 11. precision3
-# 12. precision2
-# 13. precision1
-# 14. recall4
-# 15. recall3
-# 16. recall2
-# 17. recall1
+# 02. imethod-2
+# 03. imethod-1
+# 04. itime-2
+# 05. itime-1
+# 06. iprecision-2
+# 07. iprecision-1
+# 08. irecall-2
+# 09. irecall-1
+# 10. if1-2
+# 11. if1-1
+# 12. lmethod-2
+# 13. lmethod-1
+# 14. ltime-2
+# 15. ltime-1
+# 16. lprecision-2
+# 17. lprecision-1
+# 18. lrecall-2
+# 19. lrecall-1
+# 20. lf1-2
+# 21. lf1-1
