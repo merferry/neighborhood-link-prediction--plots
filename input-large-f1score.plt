@@ -21,10 +21,10 @@ set yrange [1e-14:]
 
 ## Draw plot
 plot "input-large.csv" \
-     using ($10):xtic(1) title 'IHub 10^{-2}|E|' with histogram fill pattern 3 ls 2, \
-  '' using ($20):xtic(1) title 'LHub 10^{-2}|E|' with histogram fill pattern 3 ls 6, \
-  '' using ($11):xtic(1) title 'IHub 0.1|E|'     with histogram fill pattern 3 ls 4, \
-  '' using ($21):xtic(1) title 'LHub 0.1|E|'     with histogram fill pattern 3 ls 8, \
+     using ($10):xtic(1) title 'IBase 10^{-2}|E|' with histogram fill pattern 3 ls 2, \
+  '' using ($20):xtic(1) title 'DLH 10^{-2}|E|' with histogram fill pattern 3 ls 6, \
+  '' using ($11):xtic(1) title 'IBase 0.1|E|'     with histogram fill pattern 3 ls 4, \
+  '' using ($21):xtic(1) title 'DLH 0.1|E|'     with histogram fill pattern 3 ls 8, \
   '' using ($0-5.2/20):($10):(sprintf("%.1e", $10))   with labels textcolor rgb 'white' rotate by 90 offset character 0,-1.5 title '', \
   '' using ($0-1.8/20):($20):(sprintf("%.1e", $20))   with labels textcolor rgb 'white' rotate by 90 offset character 0,-1.5 title '', \
   '' using ($0+1.8/20):($11):(sprintf("%.1e", $11))   with labels textcolor rgb 'black' rotate by 90 offset character 0,-1.5 title '', \
