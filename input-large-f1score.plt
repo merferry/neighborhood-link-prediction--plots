@@ -29,10 +29,13 @@ plot "input-large.csv" \
   '' using ($0-1.8/20):($20):(sprintf("%.1e", $20))   with labels textcolor rgb 'white' rotate by 90 offset character 0,-1.5 title '', \
   '' using ($0+1.8/20):($11):(sprintf("%.1e", $11))   with labels textcolor rgb 'black' rotate by 90 offset character 0,-1.5 title '', \
   '' using ($0+5.2/20):($21):(sprintf("%.1e", $21))   with labels textcolor rgb 'white' rotate by 90 offset character 0,-1.5 title '', \
-  '' using ($0-5.2/20):(1e-14):(strlen(stringcolumn(2 ))<=3? sprintf("%s", stringcolumn(2 )) : "") with labels textcolor rgb 'white' rotate by 90 offset character 0,0.8 title '', \
-  '' using ($0-1.8/20):(1e-14):(strlen(stringcolumn(12))<=7? sprintf("%s", stringcolumn(12)) : "") with labels textcolor rgb 'white' rotate by 90 offset character 0,1.4 title '', \
-  '' using ($0+1.8/20):(1e-14):(strlen(stringcolumn(3 ))<=3? sprintf("%s", stringcolumn(3 )) : "") with labels textcolor rgb 'black' rotate by 90 offset character 0,0.8 title '', \
-  '' using ($0+5.2/20):(1e-14):(strlen(stringcolumn(13))<=7? sprintf("%s", stringcolumn(13)) : "") with labels textcolor rgb 'white' rotate by 90 offset character 0,1.4 title ''
+  '' using ($0-5.2/20):(1e-14):(strlen(stringcolumn(2 ))>1 && strlen(stringcolumn(2 ))<=3? sprintf("%s", stringcolumn(2 )) : "") with labels textcolor rgb 'white' rotate by 90 offset character 0,0.8 title '', \
+  '' using ($0-1.8/20):(1e-14):(strlen(stringcolumn(12))>1 && strlen(stringcolumn(12))<=7? sprintf("%s", stringcolumn(12)) : "") with labels textcolor rgb 'white' rotate by 90 offset character 0,1.4 title '', \
+  '' using ($0+1.8/20):(1e-14):(strlen(stringcolumn(3 ))>1 && strlen(stringcolumn(3 ))<=3? sprintf("%s", stringcolumn(3 )) : "") with labels textcolor rgb 'black' rotate by 90 offset character 0,0.8 title '', \
+  '' using ($0+5.2/20):(1e-14):(strlen(stringcolumn(13))>1 && strlen(stringcolumn(13))<=7? sprintf("%s", stringcolumn(13)) : "") with labels textcolor rgb 'white' rotate by 90 offset character 0,1.4 title '', \
+  '' using ($0-5.2/20):(1e-14):(strlen(stringcolumn(2 ))<=1? "No best method" : "") with labels textcolor rgb 'black' rotate by 90 offset character 0,3.2 title '', \
+  '' using ($0-1.8/20):(1e-14):(strlen(stringcolumn(12))<=1? "No best method" : "") with labels textcolor rgb 'black' rotate by 90 offset character 0,3.2 title '', \
+  '' using ($0+1.8/20):(1e-14):(strlen(stringcolumn(3 ))<=1? "Out of memory"  : "") with labels textcolor rgb 'black' rotate by 90 offset character 0,3.2 title ''
 
 
 

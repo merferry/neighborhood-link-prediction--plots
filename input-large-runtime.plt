@@ -28,10 +28,13 @@ plot "input-large.csv" \
   '' using ($0-1.8/20):($14/1000):(sprintf($14<100? "%.2f" : ($14<10000? "%.1f" : "%.0f"), $14/1000))   with labels textcolor rgb 'white' rotate by 90 offset character 0,-1   title '', \
   '' using ($0+1.8/20):($5 /1000):(sprintf($5 <100? "%.2f" : ($5 <10000? "%.1f" : "%.0f"), $5 /1000))   with labels textcolor rgb 'black' rotate by 90 offset character 0,-1.2 title '', \
   '' using ($0+5.2/20):($15/1000):(sprintf($15<100? "%.2f" : ($15<10000? "%.1f" : "%.0f"), $15/1000))   with labels textcolor rgb 'white' rotate by 90 offset character 0,-1   title '', \
-  '' using ($0-5.2/20):(0.0001):(strlen(stringcolumn(2 ))<=3? sprintf("%s", stringcolumn(2 )) : "") with labels textcolor rgb 'white' rotate by 90 offset character 0,0.8 title '', \
-  '' using ($0-1.8/20):(0.0001):(strlen(stringcolumn(12))<=7? sprintf("%s", stringcolumn(12)) : "") with labels textcolor rgb 'white' rotate by 90 offset character 0,1.4 title '', \
-  '' using ($0+1.8/20):(0.0001):(strlen(stringcolumn(3 ))<=3? sprintf("%s", stringcolumn(3 )) : "") with labels textcolor rgb 'black' rotate by 90 offset character 0,0.8 title '', \
-  '' using ($0+5.2/20):(0.0001):(strlen(stringcolumn(13))<=7? sprintf("%s", stringcolumn(13)) : "") with labels textcolor rgb 'white' rotate by 90 offset character 0,1.4 title ''
+  '' using ($0-5.2/20):(0.0001):(strlen(stringcolumn(2 ))>1 && strlen(stringcolumn(2 ))<=3? sprintf("%s", stringcolumn(2 )) : "") with labels textcolor rgb 'white' rotate by 90 offset character 0,0.8 title '', \
+  '' using ($0-1.8/20):(0.0001):(strlen(stringcolumn(12))>1 && strlen(stringcolumn(12))<=7? sprintf("%s", stringcolumn(12)) : "") with labels textcolor rgb 'white' rotate by 90 offset character 0,1.4 title '', \
+  '' using ($0+1.8/20):(0.0001):(strlen(stringcolumn(3 ))>1 && strlen(stringcolumn(3 ))<=3? sprintf("%s", stringcolumn(3 )) : "") with labels textcolor rgb 'black' rotate by 90 offset character 0,0.8 title '', \
+  '' using ($0+5.2/20):(0.0001):(strlen(stringcolumn(13))>1 && strlen(stringcolumn(13))<=7? sprintf("%s", stringcolumn(13)) : "") with labels textcolor rgb 'white' rotate by 90 offset character 0,1.4 title '', \
+  '' using ($0-5.2/20):(0.0001):(strlen(stringcolumn(2 ))<=1? "No best method" : "") with labels textcolor rgb 'black' rotate by 90 offset character 0,3.2 title '', \
+  '' using ($0-1.8/20):(0.0001):(strlen(stringcolumn(12))<=1? "No best method" : "") with labels textcolor rgb 'black' rotate by 90 offset character 0,3.2 title '', \
+  '' using ($0+1.8/20):(0.0001):(strlen(stringcolumn(3 ))<=1? "Out of memory"  : "") with labels textcolor rgb 'black' rotate by 90 offset character 0,3.2 title ''
 
 
 

@@ -24,8 +24,10 @@ plot "input-large.csv" \
   '' using ($5 /$15):xtic(1) title 'IBase 0.1|E|'     with histogram fill pattern 3 ls 4, \
   '' using ($0-2.4/20):($4 /$14):(sprintf($4 /$14 <100? "%.1f" : "%.0f", $4 /$14))   with labels textcolor rgb 'white' rotate by 90 offset character 0,-1 title '', \
   '' using ($0+2.4/20):($5 /$15):(sprintf($5 /$15 <100? "%.1f" : "%.0f", $5 /$15))   with labels textcolor rgb 'black' rotate by 90 offset character 0,-1 title '', \
-  '' using ($0-2.4/20):(0.01):(strlen(stringcolumn(2 ))<=3? sprintf("%s", stringcolumn(2 )) : "") with labels textcolor rgb 'white' rotate by 90 offset character 0,0.8 title '', \
-  '' using ($0+2.4/20):(0.01):(strlen(stringcolumn(3 ))<=3? sprintf("%s", stringcolumn(3 )) : "") with labels textcolor rgb 'black' rotate by 90 offset character 0,0.8 title ''
+  '' using ($0-2.4/20):(0.01):(strlen(stringcolumn(2 ))>1 && strlen(stringcolumn(2 ))<=3? sprintf("%s", stringcolumn(2 )) : "") with labels textcolor rgb 'white' rotate by 90 offset character 0,0.8 title '', \
+  '' using ($0+2.4/20):(0.01):(strlen(stringcolumn(3 ))>1 && strlen(stringcolumn(3 ))<=3? sprintf("%s", stringcolumn(3 )) : "") with labels textcolor rgb 'black' rotate by 90 offset character 0,0.8 title '', \
+  '' using ($0-2.4/20):(0.01):(strlen(stringcolumn(2 ))<=1? "No best method" : "") with labels textcolor rgb 'black' rotate by 90 offset character 0,3.2 title '', \
+  '' using ($0+2.4/20):(0.01):(strlen(stringcolumn(3 ))<=1? "Out of memory"  : "") with labels textcolor rgb 'black' rotate by 90 offset character 0,3.2 title ''
 
 
 
