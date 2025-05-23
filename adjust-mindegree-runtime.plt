@@ -1,5 +1,5 @@
 set term pdf
-set terminal pdf size 17in,7.2in font ",20"
+set terminal pdf size 3.75in,10in
 set output 'adjust-mindegree-runtime.pdf'
 
 
@@ -18,7 +18,7 @@ set format x "10^{%L}"
 set grid   y
 set yrange [:2]
 set key off
-set multiplot layout 2,5 margins 0.07,0.98,0.12,0.95 spacing 0.06,0.10
+set multiplot layout 5,2 margins 0.10,0.98,0.04,0.98 spacing 0.06,0.05
 # set xlabel  'Batch fraction'
 # set ylabel  'Relative Runtime'
 
@@ -38,8 +38,8 @@ set style line 11 linewidth 2 linetype 1 pointtype 3 dashtype 2
 
 
 ## Draw plot
-set label "Relative Runtime" at screen 0.01,0.45 center rotate font ",20"
-set label "Fraction of Unobserved edges" at screen 0.5,0.02 center font ",20"
+set label "Relative Runtime" at screen 0.01,0.55 center rotate
+set label "Fraction of Unobserved edges" at screen 0.5,0.01 center
 files='CN JC SI SC HP HD LHN AA RA'
 bestn='32 256 256 256 4 256 4 32 256'
 do for [i=1:words(files)] {
